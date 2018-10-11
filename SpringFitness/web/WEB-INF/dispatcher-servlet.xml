@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns=           "http://www.springframework.org/schema/beans"
+       xmlns:xsi=       "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c=         "http://www.springframework.org/schema/c"
+       xmlns:context=   "http://www.springframework.org/schema/context"
+       xmlns:p=         "http://www.springframework.org/schema/p"
+       xmlns:tx=        "http://www.springframework.org/schema/tx"
+       xmlns:util=      "http://www.springframework.org/schema/util"
+       xmlns:mvc=       "http://www.springframework.org/schema/mvc"
+       
+       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                           http://www.springframework.org/schema/util 
+                           http://www.springframework.org/schema/util/spring-util-4.0.xsd
+                           http://www.springframework.org/schema/mvc 
+                           http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+">
+
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="ac.dia"></context:component-scan>
+    
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring_fitness"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="1234"></property>
+    </bean>
+
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resources1/**" location="/resources1/"/>
+    <mvc:resources mapping="/resources2/**" location="/resources2/"/>
+    <mvc:resources mapping="/resources3/**" location="/resources3/"/>
+    <mvc:resources mapping="/ResourcesDash/**" location="/ResourcesDash/"/>
+    
+
+</beans>
